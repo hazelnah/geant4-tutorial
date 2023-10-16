@@ -6,6 +6,8 @@
 #include "event.hh"
 #include "construction.hh"
 
+extern const bool gDebug;
+
 class MySteppingAction : public G4UserSteppingAction
 {
 public:

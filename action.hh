@@ -6,6 +6,8 @@
 #include "generator.hh"
 #include "run.hh"
 
+extern const bool gDebug;
+
 class MyActionInitialization : public G4VUserActionInitialization
 {
 public:

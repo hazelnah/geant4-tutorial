@@ -11,8 +11,15 @@
 #include "physics.hh"
 #include "action.hh"
 
+#include "QGSP_BERT.hh"
+#include "QGSP_BERT_HP.hh"
+#include "QGSP_BIC_HP.hh"
+
+const bool gDebug = false;
+
 int main(int argc, char** argv)
 {
+    if (gDebug) G4cout << "Sim start" << G4endl;
     G4UIExecutive* ui = 0;
     
     #ifdef G4MULTITHREADED
@@ -24,6 +31,10 @@ int main(int argc, char** argv)
     runManager->SetUserInitialization(new MyDetectorConstruction());
     runManager->SetUserInitialization(new MyPhysicsList());
     runManager->SetUserInitialization(new MyActionInitialization());
+
+    G4VModularPhysicsList* physics = new QGSP_BIC_HP();
+    physics->RegisterPhysics(new G4DecayPhysics());
+    runManager->SetUserInitialization(physics);
 
     if (argc == 1)
     {
@@ -47,5 +58,6 @@ int main(int argc, char** argv)
         UImanager->ApplyCommand(command+fileName);
     }
 
+    if (gDebug) G4cout << "Sim end" << G4endl;
     return 0;
 }

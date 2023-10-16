@@ -6,7 +6,9 @@
 #include "G4Accumulable.hh"
 #include "G4AccumulableManager.hh"
 
-#include "g4root.hh"
+#include "G4AnalysisManager.hh"
+
+extern const bool gDebug;
 
 class MyRunAction : public G4UserRunAction
 {
