@@ -1,7 +1,5 @@
 #include "generator.hh"
 
-<<<<<<< Updated upstream
-=======
 #include "G4Event.hh"
 #include "G4ParticleGun.hh"
 #include "G4SystemOfUnits.hh"
@@ -12,7 +10,6 @@
 #include "globals.hh"
 #include <iostream>
 
->>>>>>> Stashed changes
 MyPrimaryGenerator::MyPrimaryGenerator()
 {
     fParticleGun = new G4ParticleGun(1);

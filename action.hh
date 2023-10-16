@@ -7,6 +7,8 @@
 #include "run.hh"
 #include "event.hh"
 
+extern const bool gDebug;
+
 class MyActionInitialization : public G4VUserActionInitialization
 {
 public:

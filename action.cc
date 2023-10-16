@@ -14,6 +14,7 @@ void MyActionInitialization::BuildForMaster() const
 
 void MyActionInitialization::Build() const
 {
+    if (gDebug) G4cout << "Action start" << std::endl;
     MyPrimaryGenerator *generator = new MyPrimaryGenerator();
     SetUserAction(generator);
     

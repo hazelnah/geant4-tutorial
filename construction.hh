@@ -13,6 +13,8 @@
 
 #include "detector.hh"
 
+extern const bool gDebug;
+
 class MyDetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
@@ -30,7 +32,7 @@ private:
     G4Tubs *solidScint;
     G4Box *solidWorld, *solidRadiator, *solidDetector;
     G4LogicalVolume *logicWorld, *logicRadiator, *logicDetector, *logicScint;
-    G4VPhysicalVolume *physWorld, *physDetector, *physRadiator, *physScint;
+    G4VPhysicalVolume *physWorld, *physDetector,*physDetector2, *physRadiator, *physScint;
     
     G4Material *SiO2, *H2O, *Aerogel, *worldMat;
     G4Element *C;

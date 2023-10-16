@@ -2,11 +2,18 @@
 #define GENERATOR_HH
 
 #include "G4VUserPrimaryGeneratorAction.hh"
+//#include "PrimaryGeneratorAction.hh"
 
+#include "G4Event.hh"
 #include "G4ParticleGun.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4ParticleTable.hh"
 #include "G4IonTable.hh"
+#include "Randomize.hh"
+
+#include "globals.hh"
+
+extern const bool gDebug;
 
 class MyPrimaryGenerator : public G4VUserPrimaryGeneratorAction
 {

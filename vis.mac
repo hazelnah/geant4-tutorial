@@ -5,6 +5,24 @@
 /vis/viewer/set/autoRefresh true
 /vis/scene/add/trajectories smooth
 /vis/scene/add/scale 10 cm
-/vis/scene/add/axes
+#/vis/scene/add/axes
 /vis/scene/add/eventID
 /vis/scene/endOfEventAction accumulate
+
+#
+#More Sample Commands: drawByParticleID model
+# Create a drawByParticleID model named drawByParticleID-0
+#/vis/modeling/trajectories/create/drawByParticleID
+# Configure drawByParticleID-0 model
+#/vis/modeling/trajectories/drawByParticleID-0/set gamma red
+#/vis/modeling/trajectories/drawByParticleID-0/set proton yellow
+#/vis/modeling/trajectories/drawByParticleID-0/setRGBA e+ 1 0 1 1
+#Default colors correspond to:
+#/vis/modeling/trajectories/drawByParticleID-0/set e- red
+#/vis/modeling/trajectories/drawByParticleID-0/set e+ blue
+#/vis/modeling/trajectories/drawByParticleID-0/set proton cyan
+#/vis/modeling/trajectories/drawByParticleID-0/set gamma green
+#/vis/modeling/trajectories/drawByParticleID-0/set neutron yellow
+#/vis/modeling/trajectories/drawByParticleID-0/set pi+ magenta
+#/vis/modeling/trajectories/drawByParticleID-0/set pi- magenta
+#/vis/modeling/trajectories/drawByParticleID-0/set pi0 magenta

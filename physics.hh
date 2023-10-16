@@ -6,6 +6,9 @@
 #include "G4OpticalPhysics.hh"
 #include "G4DecayPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
+#include "BiasedRDPhysics.hh"
+
+extern const bool gDebug;
 
 class MyPhysicsList : public G4VModularPhysicsList
 {

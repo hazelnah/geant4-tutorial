@@ -7,6 +7,8 @@
 
 #include "run.hh"
 
+extern const bool gDebug;
+
 class MyEventAction : public G4UserEventAction
 {
 public:
