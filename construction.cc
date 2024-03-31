@@ -2,8 +2,8 @@
 
 MyDetectorConstruction::MyDetectorConstruction()
 {
-    nCols = 10;
-    nRows = 10;
+    nCols = 100;
+    nRows = 100;
     
     fMessenger = new G4GenericMessenger(this, "/detector/", "Detector Construction");
     
@@ -15,9 +15,9 @@ MyDetectorConstruction::MyDetectorConstruction()
     
     DefineMaterials();
     
-    xWorld = 0.5*m;
-    yWorld = 0.5*m;
-    zWorld = 0.5*m;
+    xWorld = 1.*m;
+    yWorld = 1.*m;
+    zWorld = 1.*m;
     
     cherenkov = false;
     scintillator = true;
@@ -77,7 +77,15 @@ void MyDetectorConstruction::ConstructCherenkov()
     {
         for(G4int j = 0; j < nCols; j++)
         {
+<<<<<<< Updated upstream
             physDetector = new G4PVPlacement(0, G4ThreeVector(-0.5*m+(i+0.5)*m/nRows, -0.5*m+(j+0.5)*m/nCols, 0.49*m), logicDetector, "physDetector", logicWorld, false, j+i*nCols, true);
+=======
+            // physDetector = new G4PVPlacement(0, G4ThreeVector(-0.5*m+(i+0.5)*m/nRows, -0.5*m+(j+0.5)*m/nCols, 0.49*m), logicDetector, "physDetector", logicWorld, false, j+i*nCols, true);
+            physDetector = new G4PVPlacement(0, G4ThreeVector(-1*xWorld+xWorld*(2*i+1)/nRows, -1*yWorld+yWorld*(2*j+1)/nCols, 0.99*m), logicDetector, "physDetector", logicWorld, false, j+i*nCols, true);
+            physDetector2 = new G4PVPlacement(rotM, G4ThreeVector(1.01*m, -1*yWorld+yWorld*(2*j+1)/nCols, -1*zWorld+zWorld*(2*i+1)/nRows), logicDetector, "physDetector2", logicWorld, false, j+i*nCols, true);
+            // rotM = physDetector2->GetRotation();
+            // rotM->rotateX(90*deg);
+>>>>>>> Stashed changes
         }
     }
 }

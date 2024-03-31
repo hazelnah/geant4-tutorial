@@ -2,6 +2,8 @@
 #define EVENT_HH
 
 #include "G4UserEventAction.hh"
+#include "G4RunManager.hh"
+#include "G4AnalysisManager.hh"
 
 #include "run.hh"
 

@@ -18,6 +18,17 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fY");
     man->CreateNtupleDColumn("fZ");
     man->FinishNtuple(1);
+<<<<<<< Updated upstream
+=======
+
+
+    man->CreateNtuple("Source", "Source");
+    man->CreateNtupleIColumn("fEvent");
+    man->CreateNtupleDColumn("fX");
+    man->CreateNtupleDColumn("fY");
+    man->CreateNtupleDColumn("fZ");
+    man->FinishNtuple(2);
+>>>>>>> Stashed changes
 }
 
 MyRunAction::~MyRunAction()
