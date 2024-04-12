@@ -37,32 +37,25 @@ MyPrimaryGenerator::~MyPrimaryGenerator()
 
 void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 {
-<<<<<<< Updated upstream
-    G4int Z = 27;
-    G4int A = 60;
-=======
+    // G4int Z = 27;
+    // G4int A = 60;
+
     if (gDebug) G4cout << "Generate start" << std::endl;
     // std::ofstream myfile;
     // myfile.open ("decayAtoms.txt",std::ios::app);
     
     G4int Z = 92;
     G4int A = 236;
->>>>>>> Stashed changes
     G4double Q = 0.*eplus;
     G4double E = 0.*keV;
     
     G4ParticleDefinition* ion = G4IonTable::GetIonTable()->GetIon(Z, A, E);
-<<<<<<< Updated upstream
-    fParticleGun->SetParticleDefinition(ion);
-    fParticleGun->SetParticleCharge(Q);
-    
-    fParticleGun->GeneratePrimaryVertex(anEvent);
-=======
+
+//  fParticleGun->SetParticleCharge(Q);    
     fParticleGun->SetParticleDefinition(ion);    
     G4ThreeVector pos(0.,0.,0.);
     for (int i = 0; i < 1; ++i)
-    {
-        
+    {        
         pos[0] = G4UniformRand()*0.48*m;
         pos[1] = G4UniformRand()*0.48*m;
         pos[2] = G4UniformRand()*0.48*m;
@@ -74,6 +67,4 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
         // G4cout << "!!! x: " << pos[0] << "  y: " << pos[1] << "  z: " << pos[2] << G4endl; 
     }
     // myfile.close();
-
->>>>>>> Stashed changes
 }

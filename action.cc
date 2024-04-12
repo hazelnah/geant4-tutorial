@@ -19,11 +19,8 @@ void MyActionInitialization::Build() const
     
     MyRunAction *runAction = new MyRunAction();
     SetUserAction(runAction);
-<<<<<<< Updated upstream
-=======
 
     MyEventAction *evtAction = new MyEventAction(runAction);
     SetUserAction(evtAction);
     if (gDebug) G4cout << "Action end" << std::endl;
->>>>>>> Stashed changes
 }

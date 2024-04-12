@@ -6,7 +6,8 @@
 #include "G4Accumulable.hh"
 #include "G4AccumulableManager.hh"
 
-#include "g4root.hh"
+// #include "g4root.hh"
+#include "G4AnalysisManager.hh"
 
 class MyRunAction : public G4UserRunAction
 {

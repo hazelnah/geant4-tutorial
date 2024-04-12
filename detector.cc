@@ -48,13 +48,9 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     const G4VTouchable *touchable = aStep->GetPreStepPoint()->GetTouchable();
     
     G4int copyNo = touchable->GetCopyNumber();
-<<<<<<< Updated upstream
-    
-    //G4cout << "Copy number: " << copyNo << G4endl;
-=======
+
     // G4cout << "Copy number: " << copyNo << G4endl;
     if (gDebug) G4cout << "Detector::ProcessHits 3 "<< G4endl;
->>>>>>> Stashed changes
     
     G4VPhysicalVolume *physVol = touchable->GetVolume();
     G4ThreeVector posDetector = physVol->GetTranslation();
@@ -68,22 +64,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     G4int evtID = event->GetEventID();
     
     G4AnalysisManager *man = G4AnalysisManager::Instance();    
-<<<<<<< Updated upstream
-    
-    man->FillNtupleIColumn(0, 0, evt);
-    man->FillNtupleDColumn(0, 1, posPhoton[0]);
-    man->FillNtupleDColumn(0, 2, posPhoton[1]);
-    man->FillNtupleDColumn(0, 3, posPhoton[2]);
-    man->FillNtupleDColumn(0, 4, wlen);
-    man->AddNtupleRow(0);
-    
-    if(G4UniformRand() < quEff->Value(wlen))
-    {
-        man->FillNtupleIColumn(1, 0, evt);
-        man->FillNtupleDColumn(1, 1, posDetector[0]);
-        man->FillNtupleDColumn(1, 2, posDetector[1]);
-        man->FillNtupleDColumn(1, 3, posDetector[2]);
-=======
+
     if (gDebug) G4cout << "Detector::ProcessHits 5 "<< G4endl;
 
     man->FillNtupleIColumn(0, 0, evtID);
@@ -115,7 +96,6 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
         man->FillNtupleDColumn(1,2, track->GetVertexPosition()[1]);
         man->FillNtupleDColumn(1,3, track->GetVertexPosition()[2]);
         
->>>>>>> Stashed changes
         man->AddNtupleRow(1);
 
 /*        if ( track -> GetCurrentStepNumber() == 1 && track->GetParentID()==0 ) 

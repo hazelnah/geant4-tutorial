@@ -10,10 +10,6 @@ void MyEventAction::BeginOfEventAction(const G4Event* event)
 {}
 
 void MyEventAction::EndOfEventAction(const G4Event* event)
-<<<<<<< Updated upstream
-{}
-
-=======
 {
 	if (gDebug) G4cout << "Event::EndOfEventAction"<< G4endl;
 
@@ -27,4 +23,3 @@ void MyEventAction::EndOfEventAction(const G4Event* event)
     man->FillNtupleDColumn(2, 3, event->GetPrimaryVertex(0)->GetZ0());
     man->AddNtupleRow(2);
 }
->>>>>>> Stashed changes
