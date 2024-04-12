@@ -66,7 +66,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     #endif
     
     const G4Event * event = G4RunManager::GetRunManager()->GetCurrentEvent();
-    G4int evtID = event->GetEventID();
+    G4int evt = event->GetEventID();
     
     G4AnalysisManager *man = G4AnalysisManager::Instance();    
     if (gDebug) G4cout << "Detector::ProcessHits 5 "<< G4endl;
