@@ -3,6 +3,7 @@
 MyRunAction::MyRunAction()
 {   
     G4AnalysisManager *man = G4AnalysisManager::Instance();
+    man->SetNtupleMerging(true);
 
     man->CreateNtuple("Particles", "Particles");
     man->CreateNtupleIColumn("fEvent");
@@ -16,6 +17,7 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fHitX"); // position of the cell
     man->CreateNtupleDColumn("fHitY");
     man->CreateNtupleDColumn("fHitZ");
+    man->CreateNtupleDColumn("fHitT");
     man->FinishNtuple(0);
     
     man->CreateNtuple("Mother", "Mother");
@@ -30,6 +32,8 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fX");
     man->CreateNtupleDColumn("fY");
     man->CreateNtupleDColumn("fZ");
+    man->CreateNtupleDColumn("fT");
+    man->CreateNtupleDColumn("fdT");
     man->FinishNtuple(2);
 }
 

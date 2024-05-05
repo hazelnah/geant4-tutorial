@@ -51,11 +51,12 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 //  fParticleGun->SetParticleCharge(Q);    
     fParticleGun->SetParticleDefinition(ion);    
     G4ThreeVector pos(0.,0.,0.);
+    G4double zMean = 400;
     for (int i = 0; i < 1; ++i)
     {        
-        pos[0] = G4UniformRand()*0.48*m;
-        pos[1] = G4UniformRand()*0.48*m;
-        pos[2] = G4UniformRand()*0.48*m;
+        pos[0] = G4RandGauss::shoot(0., 0.1*cm); //G4UniformRand()*0.48*m; 
+        pos[1] = G4RandGauss::shoot(0., 0.02*cm); //G4UniformRand()*0.48*m;
+        pos[2] = G4RandGauss::shoot(zMean, 0.003*cm); //G4UniformRand()*0.48*m;
         fParticleGun->SetParticlePosition(pos);
 
         fParticleGun->GeneratePrimaryVertex(anEvent);

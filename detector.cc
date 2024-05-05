@@ -1,4 +1,5 @@
 #include "detector.hh"
+#include "RunData.hh"
 
 MySensitiveDetector::MySensitiveDetector(G4String name) : G4VSensitiveDetector(name)
 {
@@ -67,8 +68,13 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     
     const G4Event * event = G4RunManager::GetRunManager()->GetCurrentEvent();
     G4int evt = event->GetEventID();
+
+    auto runData = static_cast<RunData*>
+        (G4RunManager::GetRunManager()->GetNonConstCurrentRun());
+    // G4double hitTime=runData->GetEventTime() + preStepPoint->GetGlobalTime();
+    G4double hitTime=runData->GetEventTime() + track->GetLocalTime();
     
-    G4AnalysisManager *man = G4AnalysisManager::Instance();    
+    G4AnalysisManager *man = G4AnalysisManager::Instance();
     if (gDebug) G4cout << "Detector::ProcessHits 5 "<< G4endl;
 
     man->FillNtupleIColumn(0, 0, evt);
@@ -82,9 +88,9 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     man->FillNtupleDColumn(0, 8, posDetector[0]);
     man->FillNtupleDColumn(0, 9, posDetector[1]);
     man->FillNtupleDColumn(0, 10, posDetector[2]);
+    man->FillNtupleDColumn(0, 11, hitTime);
     man->AddNtupleRow(0);
     
-
     if (track->GetCreatorProcess()->GetProcessName() == "RadioactiveDecay")
     {
         if (gDebug) G4cout << " ~~~~~ Detector::ProcessHits 6 "<< G4endl;

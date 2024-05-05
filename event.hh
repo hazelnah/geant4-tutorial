@@ -23,6 +23,7 @@ public:
 private:
     MyRunAction* runAction;
     G4double edep;
+    G4double evTime;
 };
 
 #endif
