@@ -15,7 +15,7 @@
 #include "QGSP_BERT_HP.hh"
 #include "QGSP_BIC_HP.hh"
 
-const bool gDebug = false;
+const bool gDebug = true;
 
 int main(int argc, char** argv)
 {

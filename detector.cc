@@ -102,9 +102,9 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
         // G4cout << "x: " << event->GetPrimaryVertex(0)->GetX0()<< "y: " << event->GetPrimaryVertex(0)->GetY0()<< "z: " << event->GetPrimaryVertex(0)->GetZ0()<< G4endl;
 
         man->FillNtupleIColumn(1, 0, evt);
-        man->FillNtupleDColumn(1,1, track->GetVertexPosition()[0]);
-        man->FillNtupleDColumn(1,2, track->GetVertexPosition()[2]);
-        man->FillNtupleDColumn(1,3, track->GetVertexPosition()[3]);
+        man->FillNtupleDColumn(1, 1, track->GetVertexPosition()[0]);
+        man->FillNtupleDColumn(1, 2, track->GetVertexPosition()[2]);
+        man->FillNtupleDColumn(1, 3, track->GetVertexPosition()[3]);
         
         man->AddNtupleRow(1);
 
