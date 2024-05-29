@@ -83,14 +83,14 @@ void regression( TString myMethodList = "" )
 	TMVA::Factory *factory = new TMVA::Factory( "TMVARegression", outputFile,
                                                "!V:!Silent:Color:DrawProgressBar:AnalysisType=Regression" );
 	TMVA::DataLoader *dataloader=new TMVA::DataLoader("datasetreg");
-	dataloader->AddVariable( "fX", "Hit X", "units", 'F' ); //variable /*Particles/fHitX*/
-	dataloader->AddVariable( "fY", "Hit Y", "units", 'F' ); //variable /*Particles/fHitY*/
-	dataloader->AddVariable( "fT", "Hit T", "units", 'F' ); //variable /*Particles/fHitT*/
+	dataloader->AddVariable( "fHitX", "Hit X", "units", 'F' ); //variable /*Particles/fHitX*/
+	dataloader->AddVariable( "fHitY", "Hit Y", "units", 'F' ); //variable /*Particles/fHitY*/
+	dataloader->AddVariable( "fHitT", "Hit T", "units", 'F' ); //variable /*Particles/fHitT*/
 	dataloader->AddTarget( "fZ" ); //target
 	// dataloader->AddTarget( "Source/fZ" ); //target
 
    TFile *input(0);
-   TString fname = "./build/output0_10k.root";
+   TString fname = "./build/output0.root";
    if (!gSystem->AccessPathName( fname )) {
       input = TFile::Open( fname ); // check if file in local directory exists
    }
@@ -102,11 +102,12 @@ void regression( TString myMethodList = "" )
 
    // Register the regression tree
 
-   // TTree *regTree = (TTree*)input->Get("Particles");
-   TTree *regTree = (TTree*)input->Get("Source");
+   TTree *regTree1 = (TTree*)input->Get("Particles");
+   TTree *regTree2 = (TTree*)input->Get("Source");
     // global event weights per tree (see below for setting event-wise weights)
    Double_t regWeight  = 1.0;
-	dataloader->AddRegressionTree( regTree, regWeight );
+	dataloader->AddRegressionTree( regTree1, regWeight );
+   // dataloader->AddRegressionTree( regTree2, regWeight );
 
 	//it is possible to add selection cuts for variables.
 

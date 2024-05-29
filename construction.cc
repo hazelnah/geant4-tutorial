@@ -82,8 +82,8 @@ void MyDetectorConstruction::ConstructCherenkov()
             // physDetector = new G4PVPlacement(0, G4ThreeVector(-0.5*m+(i+0.5)*m/nRows, -0.5*m+(j+0.5)*m/nCols, 0.49*m), logicDetector, "physDetector", logicWorld, false, j+i*nCols, true);
             physDetector = new G4PVPlacement(0, G4ThreeVector(-1*xWorld+xWorld*(2*i+1)/nRows, -1*yWorld+yWorld*(2*j+1)/nCols, 0.99*m), 
                             logicDetector, "physDetector", logicWorld, false, j+i*nCols, false); // swithed off the overlaps checking
-            physDetector2 = new G4PVPlacement(rotM, G4ThreeVector(1.01*m, -1*yWorld+yWorld*(2*j+1)/nCols, -1*zWorld+zWorld*(2*i+1)/nRows), 
-                            logicDetector, "physDetector2", logicWorld, false, j+i*nCols, false); // swithed off the overlaps checking
+            /*physDetector2 = new G4PVPlacement(rotM, G4ThreeVector(1.01*m, -1*yWorld+yWorld*(2*j+1)/nCols, -1*zWorld+zWorld*(2*i+1)/nRows), 
+                            logicDetector, "physDetector2", logicWorld, false, j+i*nCols, false); // swithed off the overlaps checking*/
             // rotM = physDetector2->GetRotation();
             // rotM->rotateX(90*deg);
         }
