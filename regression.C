@@ -16,8 +16,8 @@ void regression( TString myMethodList = "" )
 
    // Mutidimensional likelihood and Nearest-Neighbour methods
    Use["PDERS"]           = 0;
-   Use["PDEFoam"]         = 1;
-   Use["KNN"]             = 1;
+   Use["PDEFoam"]         = 0;
+   Use["KNN"]             = 0;
    //
    // Linear Discriminant Analysis
    Use["LD"]              = 1;
@@ -29,7 +29,7 @@ void regression( TString myMethodList = "" )
    Use["FDA_GAMT"]        = 0;
    //
    // Neural Network
-   Use["MLP"]             = 0;
+   Use["MLP"]             = 1;
    // Deep neural network (with CPU or GPU)
 #ifdef R__HAS_TMVAGPU
    Use["DNN_GPU"] = 1;
@@ -47,8 +47,8 @@ void regression( TString myMethodList = "" )
    Use["SVM"]             = 0;
    //
    // Boosted Decision Trees
-   Use["BDT"]             = 0;
-   Use["BDTG"]            = 1;
+   Use["BDT"]             = 1;
+   Use["BDTG"]            = 0;
    // ---------------------------------------------------------------
 
    std::cout << std::endl;
@@ -90,7 +90,7 @@ void regression( TString myMethodList = "" )
 	// dataloader->AddTarget( "Source/fZ" ); //target
 
    TFile *input(0);
-   TString fname = "./build/output0.root";
+   TString fname = "./build/output0_10k.root";
    if (!gSystem->AccessPathName( fname )) {
       input = TFile::Open( fname ); // check if file in local directory exists
    }
