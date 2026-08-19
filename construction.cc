@@ -15,9 +15,9 @@ MyDetectorConstruction::MyDetectorConstruction()
     
     DefineMaterials();
     
-    xWorld = 1.*m;
-    yWorld = 1.*m;
-    zWorld = 1.*m;
+    xWorld = 10.*m;
+    yWorld = 10.*m;
+    zWorld = 10.*m;
     
     cherenkov = true;
     scintillator = false;

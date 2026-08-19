@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "TMVARegressionApplication.C": "cpp",
+        "regression.C": "cpp",
+        "regression_application.C": "cpp"
+    }
+}
